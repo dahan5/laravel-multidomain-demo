@@ -1,0 +1,81 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "foxws/laravel-multidomain": "^0.10.0",
+        "foxws/livewire-multidomain": "^0.10.0",
+        "fruitcake/laravel-cors": "^2.2",
+        "guzzlehttp/guzzle": "^7.4.5",
+        "http-interop/http-factory-guzzle": "^1.2",
+        "laravel/framework": "^9.31",
+        "laravel/horizon": "^5.10",
+        "laravel/sanctum": "^3.0.1",
+        "laravel/telescope": "^4.9.2",
+        "laravel/tinker": "^2.7.2",
+        "livewire/livewire": "^2.10.7",
+        "lorisleiva/laravel-actions": "^2.4",
+        "spatie/enum": "^3.13",
+        "spatie/laravel-data": "^2.0.9",
+        "spatie/laravel-enum": "^3.0.1",
+        "spatie/laravel-multitenancy": "^2.3.7"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.12.3",
+        "deployer/deployer": "^7.0",
+        "fakerphp/faker": "^1.20",
+        "laravel/pint": "^1.1.1",
+        "laravel/sail": "^1.15.4",
+        "mockery/mockery": "^1.5.1",
+        "nunomaduro/collision": "^6.2.1",
+        "phpunit/phpunit": "^9.5.23",
+        "spatie/laravel-ignition": "^1.3.1"
+    },
+    "autoload": {
+        "files": [
+            "app/Core/Helpers.php"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan vendor:publish --tag=livewire:assets --ansi --force"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

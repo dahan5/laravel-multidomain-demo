@@ -1,0 +1,8 @@
+{
+    "name": "Example",
+    "domain": {
+        "local": "example.test",
+        "staging": "example.dev",
+        "production": "example.com"
+    }
+}
